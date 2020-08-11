@@ -13,7 +13,7 @@ public class LeagueInvaders {
 	GamePanel gp;
 
 	public LeagueInvaders() {
-
+		
 		frame = new JFrame();
 		gp = new GamePanel();
 		frame.add(gp);
@@ -21,10 +21,10 @@ public class LeagueInvaders {
 
 	void setup() {
 		frame.setSize(WIDTH, HIEGHT);
-
+frame.addKeyListener(gp);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-
+		
 	}
 
 }

@@ -3,11 +3,13 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GamePanel extends JPanel implements ActionListener {
+public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		if (currentState == MENU) {
@@ -108,8 +110,45 @@ public class GamePanel extends JPanel implements ActionListener {
 		    updateGameState();
 		}else if(currentState == END){
 		    updateEndState();
+		    
 		}
-	System.out.println("action");
-	
+	//System.out.println("action");
+	repaint();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+		    if (currentState == END) {
+		        currentState = MENU;
+		    } else {
+		        currentState++;
+		    }
+		}   
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("UP");
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+			System.out.println("Down");
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+			System.out.println("Left");
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			System.out.println("Right");
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
