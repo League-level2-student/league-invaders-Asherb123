@@ -1,15 +1,18 @@
 
 public class GameObject {
-	int x;
-	 int y;
-	 int width;
-	 int height;
+	protected int x;
+	protected int y;
+	protected int width;
+	protected int height;
 	
 	 int speed = 0;
 	boolean isActive = true;
 	 
-	 public GameObject(int x, int y, int width, int height, int speed, boolean isActve) {
-		
+	 public GameObject(int x, int y, int width, int height) {
+		this.x=x;
+		this.y=y;
+		this.width=width;
+		this.height=height;
 		}
 	 
 	 void update() {
@@ -18,24 +21,14 @@ public class GameObject {
 		 
 	 }
 	
-	 public class Rocketship extends GameObject {
-
-		public Rocketship(int x, int y, int width, int height, int speed, boolean isActve) {
-			super(x, y, width, height, speed, isActve);
-			// TODO Auto-generated constructor stub
-		
-		void draw(g) {
+	
 			
-			
-		}
-				
-				
 		
 		
 		
 		
 		
-		} 
+		
 		 
 		 
 		 

@@ -24,13 +24,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	
 	
-	
 		
 		
 		
 	
 	  
-		
+	  Rocketship rocketship;
 	
 	Timer frameDraw; 
 	Font fontTitle;
@@ -44,6 +43,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		fontTitle = new Font("Arial", Font.PLAIN, 30);
 
+		 rocketship = new Rocketship(250, 700, 50, 50);
 	}
 	
 	
@@ -82,12 +82,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.WHITE);
 		g.drawString("Press SPACE for Instructions", 50, 500);
 
+		
 	}
 
+	
+	
+	
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HIEGHT);
 
+		
+		rocketship.draw(g);
 	}
 
 	void drawEndState(Graphics g) {
