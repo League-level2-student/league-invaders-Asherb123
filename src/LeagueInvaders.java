@@ -15,7 +15,7 @@ public class LeagueInvaders {
 	public LeagueInvaders() {
 		
 		frame = new JFrame();
-		gp = new GamePanel();
+		gp = new GamePanel(0, 0, 0, 0);
 		frame.add(gp);
 	}
 

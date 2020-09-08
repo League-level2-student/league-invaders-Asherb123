@@ -20,8 +20,9 @@ public class Alien extends GameObject {
 	
 	void update(Graphics g) {
 		
-		g.setColor(Color.YELLOW);
-        g.fillRect(400, 400, 10, 10);
+	
+		y+=speed;
+	
 		
 		
 	}

@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font fontTitle;
 	Font titleFont;
 
-	public GamePanel() {
+	public GamePanel(int x, int y, int width, int height) {
 		frameDraw = new Timer(1000/60, this);
 		frameDraw.start();
 		
