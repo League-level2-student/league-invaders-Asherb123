@@ -35,7 +35,24 @@ public class ObjectManager {
 		
 	}
 	
-	void Update() {
+	void update() {
+		for (int i = 0; i < aliens.size() ; i++) {
+			Alien s = aliens.get(i);
+		
+		s.update();
+		
+		System.out.println(s.y);
+		
+		}
+		
+		for (int i = 0; i < projectiles.size(); i++) {
+			
+			Projectile a = projectiles.get(i);
+			
+			a.update();
+			
+			
+		}
 		
 	
 		
