@@ -35,11 +35,12 @@ public class ObjectManager implements ActionListener {
 			Alien s = aliens.get(i);
 
 			s.update();
-
+			
 			System.out.println(s.y);
 
+			
 		}
-
+		rocketship.update();
 		for (int i = 0; i < projectiles.size(); i++) {
 
 			Projectile a = projectiles.get(i);
@@ -49,7 +50,8 @@ public class ObjectManager implements ActionListener {
 			System.out.println(a.y);
 
 		}
-
+checkCollision();
+			purgeObjects();
 }
 	void draw(Graphics g) {
 		rocketship.draw(g);
@@ -65,7 +67,7 @@ public class ObjectManager implements ActionListener {
 	}
 	
 	void purgeObjects() {
-		for (int i = aliens.size(); i>=0; i--) {
+		for (int i = aliens.size()-1; i>=0; i--) {
 			Alien z = aliens.get(i);
 			
 			if (z.isActive==false) {
@@ -84,11 +86,33 @@ public class ObjectManager implements ActionListener {
 		}
 		
 	}
+	void checkCollision() {
+		for (int i = aliens.size()-1; i>=0; i--) {
+			Alien z = aliens.get(i);
+		if (z.collisionBox.intersects(rocketship.collisionBox)) {
+			z.isActive=false;
+			rocketship.isActive=false;
 
+			}
+			 for (int j = projectiles.size()-1; j >= 0; j--) {
+				Projectile x = projectiles.get(j);
+				
+				if (x.collisionBox.intersects(z.collisionBox)) {
+					x.isActive=false;
+					z.isActive=false;
+				}
+			}
+			
+		}
+			
+		
+		
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		addAlien();
+		addAlien(null);
 		
 	}
 	
