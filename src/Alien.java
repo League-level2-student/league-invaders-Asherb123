@@ -34,7 +34,7 @@ public class Alien extends GameObject {
 		
 	}
 	
-	void update(Graphics g) {
+	void update() {
 		
 	
 		y+=speed;

@@ -71,9 +71,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState() {
-		objectManager.update();;
-		if (rocketship.isActive=false) {
+		objectManager.update();
+		if (rocketship.isActive==false) {
 			currentState=END;
+			alienSpawn.stop();
 		}
 	}
 
@@ -112,7 +113,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			g.setColor(Color.BLUE);
 			
 		}
-		
+		g.setColor(Color.WHITE);
+		g.drawString("Score: "+ objectManager.getScore(), 10, 40);
 		objectManager.draw(g);
 	}
 
@@ -156,10 +158,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 		    if (currentState == END) {
 		        currentState = MENU;
-		      
+		        rocketship = new Rocketship(250, 700, 50, 50);
+				 objectManager = new ObjectManager(rocketship);
 		    } else if( currentState==GAME){
 		       currentState=END;
-		       alienSpawn.stop();
+		      alienSpawn.stop();
 		     }
 		    else {
 				currentState++;
@@ -187,7 +190,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			System.out.println("Right");
 			rocketship.right();    
 		}
-		
+		//if (e.getKeyCode()==KeyEvent.VK_ENTER && currentState==END) {
+			// rocketship = new Rocketship(250, 700, 50, 50);
+			// objectManager = new ObjectManager(rocketship);
+		//}
 		
 		
 	}
